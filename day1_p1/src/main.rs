@@ -65,4 +65,6 @@ fn find_number_in_line(line: String) -> i32 {
             0
         }
     };
+
+    number
 }
