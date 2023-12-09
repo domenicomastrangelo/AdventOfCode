@@ -58,5 +58,11 @@ fn find_number_in_line(line: String) -> i32 {
         _ => (),
     }
 
-    number.parse::<i32>().unwrap_or(0)
+    let number = match number.parse::<i32>() {
+        Ok(number) => number,
+        Err(l) => {
+            println!("Error: {}", l);
+            0
+        }
+    };
 }
