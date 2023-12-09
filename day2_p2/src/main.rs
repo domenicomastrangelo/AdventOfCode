@@ -4,10 +4,6 @@ use std::{
     io::{BufRead, BufReader},
 };
 
-struct Game {
-    result: u32,
-}
-
 struct Colors {
     red: u16,
     green: u16,
@@ -41,7 +37,7 @@ fn main() {
         let plays = game[1];
         let plays = plays.split(";").collect::<Vec<&str>>();
 
-        let mut game = Game { result: 0 };
+        let mut game_result: u32 = 0;
 
         let mut colors = Colors {
             red: 0,
@@ -90,11 +86,11 @@ fn main() {
                     }
                 };
 
-                game.result = u32::from(colors.red * colors.green * colors.blue);
+                game_result = u32::from(colors.red * colors.green * colors.blue);
             }
         }
 
-        power_sum += game.result;
+        power_sum += game_result;
     }
 
     println!("The sum of powers is: {}", power_sum);
